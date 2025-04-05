@@ -1,0 +1,70 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Player/Run0.png" type="Texture" id=2]
+[ext_resource path="res://JungleDirtTileSet.tres" type="TileSet" id=3]
+[ext_resource path="res://Sprites/Player/Jump3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/Run7.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/Jump4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/Jump0.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/Run4.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/Jump1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/Run1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player/Run3.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Player/Run2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Player/Idle0.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "FallDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 26.5 )
+
+[node name="World" type="Node"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 271, 182 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Player"]
+position = Vector2( 1.50001, 0 )
+scale = Vector2( 0.984375, 1 )
+frames = SubResource( 3 )
+animation = "FallDown"
+playing = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 1, 5.5 )
+shape = SubResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 458754, 0, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 2, 0, 524290, 3, 0, 524291, 4, 0, 524292, 4, 0, 524293, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 524297, 4, 0, 524298, 4, 0, 524299, 4, 0, 524300, 4, 0, 524301, 4, 0, 524302, 4, 0, 524303, 4, 0, 524304, 4, 0, 524305, 5, 0, 589826, 3, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589836, 4, 0, 589837, 4, 0, 589838, 4, 0, 589839, 4, 0, 589840, 4, 0, 589841, 5, 0, 655362, 6, 0, 655363, 7, 0, 655364, 7, 0, 655365, 7, 0, 655366, 7, 0, 655367, 7, 0, 655368, 7, 0, 655369, 7, 0, 655370, 7, 0, 655371, 7, 0, 655372, 7, 0, 655373, 7, 0, 655374, 7, 0, 655375, 7, 0, 655376, 7, 0, 655377, 8, 0 )
